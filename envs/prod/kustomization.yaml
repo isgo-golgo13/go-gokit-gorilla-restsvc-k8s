@@ -1,0 +1,11 @@
+namespace: isgogolgo13
+
+resources:
+  - ../../root
+
+configMapGenerator:
+  - name: isgogolgo13-values
+    behavior: merge
+    files:
+      - values.yaml=values/isgogolgo13.yaml
+

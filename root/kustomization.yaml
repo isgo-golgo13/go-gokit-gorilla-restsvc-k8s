@@ -1,0 +1,12 @@
+namespace: isgogolgo13
+
+commonLabels:
+  owner: isgogolgo13
+
+resources:
+  - namespace.yaml
+  - gitrepository.yaml
+  - deployment.yaml
+  - service.yaml
+  
+ 

@@ -1,0 +1,7 @@
+namespace: isgogolgo13
+
+resources:
+  - ../../root
+
+patchesStrategicMerge:
+  - patch-isgogolgo13.yaml
