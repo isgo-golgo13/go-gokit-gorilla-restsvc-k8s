@@ -1,4 +1,4 @@
-# Go, Gokit, Gorilla RESTSVC (isgo-golgo13/go-gokit-gorilla-restsvc gitrepo app) K8s Resources (K8s YAML, K8s Helm, K8s Kustomize)
+# Go, Gokit, Gorilla REST Service (isgo-golgo13/go-gokit-gorilla-restsvc gitrepo app) K8s Resources (K8s YAML, K8s Helm, K8s Kustomize)
 K8s GitOps Resource Styles (K8s YAML, K8s Helm and K8s Kustomize) for Go Project for Web Service go-gokit-gorilla-restsvc at Gitub repo `https://github.com/isgo-golgo13/go-gokit-gorilla-restsvc.git`. This is the Git source repo for ArgoCD (isgo-golgo13/argocd-apps) and FluxCD (isgo-golgo13/fluxcd-apps).
 
 
