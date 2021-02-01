@@ -4,8 +4,6 @@ K8s GitOps Resource Styles (K8s YAML, K8s Helm and K8s Kustomize) for Go Project
 
 ### Development Workflow (Create the Cluster)
 
-# Create a local k3d cluster with the appropriate port forwards (3 server node/3 agent node default with load balancer)
-
 ```
 Creates a 3 Server Node/3 Worker/Agent Node Cluster
 
