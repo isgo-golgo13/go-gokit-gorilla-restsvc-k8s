@@ -62,7 +62,7 @@ kubectx
 helm install traefik traefik/traefik
 ```
 
-**If Executed Correctly:**
+**If Executed Correctly, Deployment Status SHOULD Show:**
 
 ```
 NAME: traefik
