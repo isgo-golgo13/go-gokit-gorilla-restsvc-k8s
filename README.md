@@ -41,6 +41,7 @@ The following flags and flag arguments are as follows:
 | --verbose               |       (no arg)         | turns on full verbose mode on during creation of cluster              |
 
 
+
 **2.** Install Traefik Load Balancer/Ingress Controller v2
 
 ```
@@ -51,7 +52,7 @@ helm repo add traefik https://containous.github.io/traefik-helm-chart
 helm install traefik traefik/traefik
 ```
 
-The result of Step #2 should see :
+The result should show :
 
 ```
 NAME: traefik
