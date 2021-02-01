@@ -44,7 +44,7 @@ The following flags and flag arguments are as follows:
 
 **2.** Install Traefik Load Balancer/Ingress Controller v2
 
-Check if Traefik v2 Helm Repository is Listed Locally as Cached/Downloaded
+**Check if Traefik v2 Helm Repository is Listed Locally as Cached/Downloaded**
 ```
 helm repo list 
 ```
