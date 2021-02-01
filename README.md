@@ -69,7 +69,7 @@ TEST SUITE: None
 kubectl port-forward $(kubectl get pods --selector "app.kubernetes.io/name=traefik" --output=name) 9000:9000
 ```
 
-Now go to `http://localhost:9000/dashboard` to check if Traefik Dashboard is up.
+Now go to `http://localhost:9000/dashboard` to check if Traefik Dashboard is serving.
 
 
 **4.** Deploy K8s Resources to k3d Cluster
