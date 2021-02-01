@@ -62,7 +62,7 @@ kubectx
 helm install traefik traefik/traefik
 ```
 
-The result should show :
+**If Executed Correctly:**
 
 ```
 NAME: traefik
