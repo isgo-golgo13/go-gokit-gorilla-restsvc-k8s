@@ -36,7 +36,9 @@ The following flags and flag arguments are as follows:
 | -p                      | 80:80@loadbalancer     | tie localhost port 80 to port 80 to k3d virtual load balancer         | 
 | -p                      | 443:443@loadbalancer   | tie localhost port 443 to port 443 to k3d virtual load balancer       | 
 | --k3s-server-arg        | "--no-deploy=traefik"  | **disable Traefik load balancer/ingress v1 to override with v2**      |
-
+| - agents                |       3                | create cluster with 3 agent/worker nodes (HA if server nodes 3)       | 
+| --servers               |       3                | create cluster with 3 server nodes (HA if agent nodes 3)              |
+| --verbose               |       (no arg)         | turns on full verbose mode on during creation of cluster              |
 
 
 **2.** Install Traefik Load Balancer/Ingress Controller v2
