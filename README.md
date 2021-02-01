@@ -44,10 +44,20 @@ The following flags and flag arguments are as follows:
 
 **2.** Install Traefik Load Balancer/Ingress Controller v2
 
+Check if Traefik v2 Helm Repository is Listed Locally as Cached/Downloaded
 ```
 helm repo list 
+```
 
+If Check DOES NOT Include Locally Cached/Downloaded, Download the Chart Repository to Cache
+```
 helm repo add traefik https://containous.github.io/traefik-helm-chart  
+```
+
+Download/Install to Running K8s Cluister (Check K8s Context Config to Ensure Install to Correct Cluster)
+
+```
+kubectx 
 
 helm install traefik traefik/traefik
 ```
