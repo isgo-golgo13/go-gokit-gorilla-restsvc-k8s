@@ -49,12 +49,12 @@ The following flags and flag arguments are as follows:
 helm repo list 
 ```
 
-If Check DOES NOT Include Locally Cached/Downloaded, Download the Chart Repository to Cache
+**If Check DOES NOT Include Locally Cached/Downloaded, Download the Chart Repository to Cache**
 ```
 helm repo add traefik https://containous.github.io/traefik-helm-chart  
 ```
 
-Download/Install to Running K8s Cluister (Check K8s Context Config to Ensure Install to Correct Cluster)
+**Download/Install to Running K8s Cluister (Check K8s Context Config to Ensure Install to Correct Cluster)**
 
 ```
 kubectx 
