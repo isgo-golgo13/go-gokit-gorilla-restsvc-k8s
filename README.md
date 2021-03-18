@@ -53,7 +53,7 @@ helm repo add traefik https://containous.github.io/traefik-helm-chart
 **Download/Install to Running K8s Cluister (Check K8s Context Config to Ensure Install to Correct Cluster)**
 
 ```
-kubectx 
+kubectx #kubectx checks the current cluster context prior to any deployments
 
 helm install traefik traefik/traefik
 ```
