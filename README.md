@@ -13,12 +13,11 @@ k3d cluster create go-gokit-gorilla-restsvc-cluster --api-port 127.0.0.1:6443 --
 For a 1 Server Node/3 Worker/Agent Node Cluster.
 ```
 k3d cluster create go-gokit-gorilla-restsvc-cluster --api-port 127.0.0.1:6443 --k3s-server-arg "--no-deploy=traefik" -p 80:80@loadbalancer -p 443:443@loadbalancer --agents 3 --servers 1 --verbose
-
 ```
 
 ### Running the K8s (K8s YAML Approach, K8s Helm Approach)
 
-To run the `sgogolgo13/go-gokit-gorilla-restsvc` on K8s cluster we will use Rancher `k3d` using Traefik 2.2 LoadBalancer/Ingress Controller as of 1-25-2020
+To run the `go-gokit-gorilla-restsvc` on K8s cluster we will use Rancher `k3d` using Traefik 2.2 LoadBalancer/Ingress Controller as of 1-25-2020
 k3d included Traefik uses v1 and to use v2 the step to include v2 is to provide arguments to the `k3d cluster create` command.
 
 **1.** Create the K3D cluster (default 3 server node, 3 agent node) - Disable default Traefik v1 Load Balancer/Ingress (See top of page as this is again depicted)
