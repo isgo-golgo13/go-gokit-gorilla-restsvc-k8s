@@ -82,6 +82,44 @@ Now go to `http://localhost:9000/dashboard` to check if Traefik Dashboard is ser
 
 The following will show how to deploy the K8s Resources **(first using K8s YAML, second K8s Helm Chart)**
 
+#### Using the K8s Autoscaler (HPA - Horizontal Pod Autoscaler)
+
+In the `k8s-yaml, k8s-helm, k8s-istio-helm, k8s-istio-yaml, k8s-istio-kustomize and k8s-istio-kustomize` directories, all the K8s resources have defined a HorizontalPodAutoscaler to auto-scale on CPU or Memory the microservice pods on a conditional threshold of CPU or Memory.
+
+To use the HPA, the K8s `metrics-server' MUST be actively installed and running on the K8s cluster. This Git repo uses K3D K8s cluster which has the metrics-server installed and running as a default. To check the metrics-server is running do the following at the shell (after you have created the K3D K8s cluster):
+
+```
+kubectl top nodes
+```
+
+The `kubectl top nodes` command will show CPU and Memory for the running nodes if and only if the metrics-server is actively running.
+
+
+If the K8s resources are deployed to the cluster using either the provided K8s raw YAML directories, the K8s Helm directories or the K8s Kustomize directories, the HPA will require an HTTP traffic load generator to trigger the auto-scaling as the CPU or Memory is throttled upward to the threshold levels (defined in the HPA). The Linux `siege` toolchain is this HTTP traffic load generator. 
+
+To trigger the throttling of concurrent requests to escalate the CPU or Memory do the following from a seperate shell:
+
+```
+Syntax:
+
+siege -q -c <# of concurrent requests> -t <requested length of time of active requests> <url of K8s service exposed from ingress load balancer>
+
+Actual use: 
+
+This calls the HTTP REST /engines/<ID> API concurrently 100x for 5 min at the ingress controller exposed endpoint of `http://localhost/engines/00001`. The `/00001` ID is assuming that an HTTP POST REST API `http://localhost/engines/` with a JSON POST payload was sent to the server and stored in its DB.
+
+siege -q -c 100 -t 5m http://localhost/engines/00001
+
+```
+
+To watch the installed HPA at work, run the   `kubectl get hpa` and `kubectl describe hpa <hpa-name>` as it will
+take several minutes for the HPA to take effect and as the `siege` command is applied to simulate the HTTP traffic load into the cluster service, this will spike up the CPU or the Memory (dependening on the chosen config for CPU or Memory in the HPA) and as the threshold limit is evetually hit, the HPA will scale the `REPLICAS` to the `MAX PODS` configured in the HPA.
+
+After the 5 min request window expires, the cool down period will occur and the scale down of CPU or Memory will start. The final status of the REPLICAS will go from MAX defined in the HPA to the MIN of 1.
+
+
+
+
 #### K8s YAML Approach 
 
 For K8s YAML deployment issue in the exact order as follows:
@@ -102,7 +140,7 @@ This will create all the K8s resources into the K8s K3D cluster from the `k8s/k8
 
 For K8s Helm deployment issue as follows:
 
-From the `k8s/k8s-helm/gokit-gorilla-restsvc-chart` diretory (at the shell):
+From the `k8s/k8s-helm/gokit-gorilla-restsvc-chart` directory (at the shell):
 
 `1.` Render the Helm Chart (Local Render)
 ```
