@@ -92,7 +92,7 @@ To use the HPA, the K8s `metrics-server' MUST be actively installed and running 
 kubectl top nodes
 ```
 
-The `kubectl top nodes` command will show CPU and Memory for the running nodes if and only if the metrics-server is actively running.
+This will show CPU and Memory for the running nodes if and only if the metrics-server is actively running.
 
 
 If the K8s resources are deployed to the cluster using either the provided K8s raw YAML directories, the K8s Helm directories or the K8s Kustomize directories, the HPA will require an HTTP traffic load generator to trigger the auto-scaling as the CPU or Memory is throttled upward to the threshold levels (defined in the HPA). The Linux `siege` toolchain is this HTTP traffic load generator. 
