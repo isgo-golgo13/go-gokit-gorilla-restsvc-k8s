@@ -113,7 +113,7 @@ siege -q -c 100 -t 5m http://localhost/engines/00001
 ```
 
 To watch the installed HPA at work, run the   `kubectl get hpa` and `kubectl describe hpa <hpa-name>` as it will
-take several minutes for the HPA to take effect and as the `siege` command is applied to simulate the HTTP traffic load into the cluster service, this will spike up the CPU or the Memory (dependening on the chosen config for CPU or Memory in the HPA) and as the threshold limit is evetually hit, the HPA will scale the `REPLICAS` to the `MAX PODS` configured in the HPA.
+take several minutes for the HPA to take effect and as the `siege` command is applied to simulate the HTTP traffic load into the cluster service, this will spike up the CPU or the Memory (depending on the config for CPU or Memory in the HPA) and as the threshold limit is eventually hit, the HPA will scale the `REPLICAS` to the `MAX PODS` configured in the HPA.
 
 After the 5 min request window expires, the cool down period will occur and the scale down of CPU or Memory will start. The final status of the REPLICAS will go from MAX defined in the HPA to the MIN of 1.
 
