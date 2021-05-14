@@ -86,22 +86,15 @@ The following will show how to deploy the K8s Resources **(first using K8s YAML,
 
 For K8s YAML deployment issue in the exact order as follows:
 
-From the `k8s/k8s-yaml` diretory (at the shell):
+From the `k8s` directory (at the shell):
 
-`1.` Deploy the `deployment.yaml` file
 ```
-kubectl create -f deployment.yaml
-```
-
-`2.` Deploy the `service.yaml` file
-```
-kubectl create -f  service.yaml
+kubectl apply -f ./k8s-yaml
 ```
 
-`3.` Deploy the `ingress.yaml` file (annotated ingress using Traefik)
-```
-kubectl create -f ingress.yaml
-```
+This will create all the K8s resources into the K8s K3D cluster from the `k8s/k8s-yaml` directory.
+
+
 
 
 
