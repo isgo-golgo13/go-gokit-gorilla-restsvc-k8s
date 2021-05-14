@@ -19,7 +19,7 @@ k3d cluster create go-gokit-gorilla-restsvc-cluster --api-port 127.0.0.1:6443 --
 
 To run the `go-gokit-gorilla-restsvc` on K8s cluster we will use Rancher `k3d` using Traefik 2.2 LoadBalancer/Ingress Controller (k3d originally included Traefik v1 and lacked production features Traefik v2 includes) and to use v2 the step to include v2 is to provide arguments to the `k3d cluster create` command.
 
-**1.** Create the K3D cluster (default 3 server node, 3 agent node) - Disable default Traefik v1 Load Balancer/Ingress (See top of page as this is again depicted)
+#### 1. Create the K3D cluster (default 3 server node, 3 agent node) - Disable default Traefik v1 Load Balancer/Ingress (See top of page as this is again depicted)
 ```
 k3d cluster create go-gokit-gorilla-restsvc-cluster --api-port 127.0.0.1:6443 --k3s-server-arg "--disable=traefik" --k3s-server-arg "--disable=metrics-server" -p 80:80@loadbalancer -p 443:443@loadbalancer --agents 3 --servers 3 --verbose
 ```
@@ -38,7 +38,7 @@ The following flags and flag arguments are as follows:
 
 
 
-**2.** Install Traefik Load Balancer/Ingress Controller v2
+#### 2. Install Traefik Load Balancer/Ingress Controller v2
 
 **Check if Traefik v2 Helm Repository is Listed Locally as Cached/Downloaded**
 ```
@@ -69,7 +69,7 @@ REVISION: 1
 TEST SUITE: None
 ```
 
-**3.** Check Traefik Dashboard 
+#### 3. Check Traefik Dashboard 
 
 ```
 kubectl port-forward $(kubectl get pods --selector "app.kubernetes.io/name=traefik" --output=name) 9000:9000
@@ -78,7 +78,7 @@ kubectl port-forward $(kubectl get pods --selector "app.kubernetes.io/name=traef
 Now go to `http://localhost:9000/dashboard` to check if Traefik Dashboard is serving.
 
 
-**4.** Deploy K8s Resources to k3d Cluster
+#### 4. Deploy K8s Resources to k3d Cluster
 
 The following will show how to deploy the K8s Resources **(first using K8s YAML, second K8s Helm Chart)**
 
