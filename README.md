@@ -6,7 +6,7 @@ K8s GitOps Resource Styles (K8s YAML, K8s Helm and K8s Kustomize) for Go Project
 
 This creates a 3 Server Node/3 Worker/Agent Node Cluster.
 ```
-k3d cluster create go-gokit-gorilla-restsvc-cluster --api-port 127.0.0.1:6443 --k3s-server-arg "--disable=traefik" --k3s-server-arg "--disable=metrics-server" -p 80:80@loadbalancer -p 443:443@loadbalancer --agents 3 --servers 3 --verbose
+k3d cluster create go-gokit-gorilla-restsvc-cluster --api-port 127.0.0.1:6443 --k3s-server-arg "--disable=traefik" -p 80:80@loadbalancer -p 443:443@loadbalancer --agents 3 --servers 3 --verbose
 ```
 **or** 
 
@@ -14,6 +14,8 @@ For a 1 Server Node/3 Worker/Agent Node Cluster.
 ```
 k3d cluster create go-gokit-gorilla-restsvc-cluster --api-port 127.0.0.1:6443 --k3s-server-arg "--no-deploy=traefik" -p 80:80@loadbalancer -p 443:443@loadbalancer --agents 3 --servers 1 --verbose
 ```
+
+Both `k3d cluster create` commands will automatically enable the K8s metrics server that is required for using the VPA (Vertical Pod Autoscaler) or the HPA (Horizontal Pod Autoscaler). The HPA requirement is that CPU and/or Memory resources configs on the Deployment are defined.
 
 ### Running the K8s (K8s YAML Approach, K8s Helm Approach)
 
